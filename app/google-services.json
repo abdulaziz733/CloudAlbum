@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "718743958953",
+    "firebase_url": "https://cloudalbum-be047.firebaseio.com",
+    "project_id": "cloudalbum-be047",
+    "storage_bucket": "cloudalbum-be047.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:718743958953:android:ccecfc8920f0f9ed",
+        "android_client_info": {
+          "package_name": "com.cloudalbum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "718743958953-vb5sbheko02qqi36pke4h4fdg449gv21.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cloudalbum",
+            "certificate_hash": "877ed760b0cce57d41236ca6c45d2c77b95c128b"
+          }
+        },
+        {
+          "client_id": "718743958953-sqco3t6marmp39955rgur2ees8q6bm0k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAd5K6Sx8jnOyuJEMy5VNw_Qk8yLRWE2ts"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "718743958953-sqco3t6marmp39955rgur2ees8q6bm0k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
