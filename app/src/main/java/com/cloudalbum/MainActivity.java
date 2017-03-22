@@ -29,7 +29,7 @@ import java.io.IOException;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final int PICK_IMAGE_REQUEST = 123;
-    private Button buttonChoose, buttonUpload;
+    private Button buttonChoose, buttonUpload, buttonDownload;
     private ImageView imgView;
     private Uri filePath;
 
@@ -42,10 +42,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         buttonUpload = (Button) findViewById(R.id.buttonUpload);
         buttonChoose = (Button) findViewById(R.id.buttonChoose);
+        buttonDownload = (Button) findViewById(R.id.buttonDownload);
         imgView = (ImageView) findViewById(R.id.imgView);
 
         buttonUpload.setOnClickListener(this);
         buttonChoose.setOnClickListener(this);
+        buttonDownload.setOnClickListener(this);
 
 
         mStorageRef = FirebaseStorage.getInstance().getReference();
@@ -103,20 +105,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Download...");
+        progressDialog.setMessage("Download image");
         progressDialog.show();
 
         mStorageRef.child("images/profile.jpg").getDownloadUrl()
                 .addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
-                        progressDialog.dismiss();
+
                         Toast.makeText(MainActivity.this, "Download Success", Toast.LENGTH_SHORT).show();
                         Toast.makeText(MainActivity.this, uri.toString(), Toast.LENGTH_SHORT).show();
 
+                        Log.d("aziz", uri.toString());
                         Picasso.with(MainActivity.this)
                                 .load(uri.toString())
                                 .into(imgView);
-
+                        progressDialog.dismiss();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -155,6 +159,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (v == buttonUpload) {
             //upload file to firebase storage
             uploadFile();
+        } else if (v == buttonDownload){
+            //download file
+            downloadFile();
         }
 
     }
